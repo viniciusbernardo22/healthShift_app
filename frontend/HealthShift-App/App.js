@@ -1,19 +1,26 @@
-import { useState } from 'react';
-import { Text, StyleSheet, SafeAreaView } from 'react-native';
+import { useState , useEffect, useContext} from 'react';
+import {  StyleSheet } from 'react-native';
 import Login from './components/Login/login';
 import { NavigationContainer } from '@react-navigation/native';
+import Home from './components/Home/home';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import AuthProvider, { AuthContext } from './contexts/authContext';
+import Routes from './routes';
+
+const Stack = createNativeStackNavigator();
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState('');
+  //const { signed , user} = useContext(AuthContext);
+
 
   if (!user) {
-    return <Login changeStatus={setUser} />;
-  }
+    return <Login changeStatus={setUser}/>;
+  } 
+
   return (
     <NavigationContainer>
-      <SafeAreaView style={styles.container}>
-        <Text>Rota app</Text>
-      </SafeAreaView>
+      <Routes/>
     </NavigationContainer>
   );
 }

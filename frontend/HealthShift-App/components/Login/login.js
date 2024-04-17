@@ -4,6 +4,7 @@ import FormLogin from './components/formLogin';
 import FormRegister from './components/formRegister';
 import firebase from './services/firebase';
 import { EmailValidator } from '../../validators/LoginValidator';
+import { SaveUser } from '../Login/services/globalstorage'
 
 export default function Login({changeStatus}) {
 
@@ -34,7 +35,7 @@ export default function Login({changeStatus}) {
     setPassword('');
   }
 
-  function handleLogin() {
+  async function  handleLogin() {
     if (EmailValidator(email) && password !== '') {
       firebase
         .auth()
@@ -46,9 +47,12 @@ export default function Login({changeStatus}) {
           );
           setEmail('');
           ResetLoginForm();
+          const { uid, email } = response.user;
+          SaveUser({uid, email});
           changeStatus(response.user.uid);
         })
         .catch((e) => {
+          console.log(e)
           Alert.alert(
             'Falha de autenticação',
             'Ocorreu algum erro durante sua tentativa de autenticação, tente novamente.'
