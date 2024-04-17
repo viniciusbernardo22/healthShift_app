@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Text, StyleSheet, SafeAreaView} from 'react-native';
-import Login from './src/components/Login';
+import Login from './components/Login/login';
 
-export default function App() {
+ function App() {
   const [user, setUser] = useState(null);
 
   if(!user) {
-    return <Login />;
+    return <Login changeStatus={setUser} />;
   }
   return (
     <SafeAreaView style={styles.container}>
@@ -23,3 +23,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#f2f2f2'
   }
 });
+
+export default App;

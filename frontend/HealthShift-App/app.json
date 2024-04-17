@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "HealthShift",
-    "slug": "HealthShift",
+    "name": "HealthShift-App",
+    "slug": "HealthShift-App",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

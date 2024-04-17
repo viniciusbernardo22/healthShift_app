@@ -1,17 +1,19 @@
 import { useEffect, useState } from 'react';
-import { View, StyleSheet, SafeAreaView, Image } from 'react-native';
+import { View, StyleSheet, SafeAreaView, Image, Alert } from 'react-native';
 import FormLogin from './components/formLogin';
 import FormRegister from './components/formRegister';
+import firebase from './services/firebase';
+import { EmailValidator } from '../../validators/LoginValidator';
 
-export default function Login() {
-  const logo = require('../../../assets/HealthShift.png')
+export default function Login({changeStatus}) {
+
+  const logo = require('../../assets/HealthShift.png');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
   const [registerConfirmPassword, setRegisterConfirmPassword] = useState('');
-
   const [type, setType] = useState('login');
 
   useEffect(() => {
@@ -33,20 +35,68 @@ export default function Login() {
   }
 
   function handleLogin() {
-    console.log({ email, password });
+    if (EmailValidator(email) && password !== '') {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .then((response) => {
+          Alert.alert(
+            '',
+            'Login bem sucedido'
+          );
+          setEmail('');
+          ResetLoginForm();
+          changeStatus(response.user.uid);
+        })
+        .catch((e) => {
+          Alert.alert(
+            'Falha de autenticação',
+            'Ocorreu algum erro durante sua tentativa de autenticação, tente novamente.'
+          );
+        });
+    } else {
+      Alert.alert(
+        'Falha de validação',
+        'Há algo errado com seu e-mail ou senha, por favor tente novamente.'
+      );
+    }
   }
 
   function handleRegister() {
-    console.log({ registerEmail, registerPassword, registerConfirmPassword });
+    if (registerPassword !== registerConfirmPassword) {
+      Alert.alert(
+        'Falha de validação',
+        'As duas senhas não coencidem, por favor tente novamente'
+      );
+    }
+    if (EmailValidator(registerEmail)) {
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(registerEmail, registerPassword)
+        .then((response) => {
+          setType('login');
+          setEmail(registerEmail);
+          setPassword(registerPassword);
+          handleLogin();
+        })
+        .catch((err) => {
+          Alert.alert(
+            'Falha de criação de usuário',
+            'Ocorreu algum erro durante sua tentativa de criação de usuario, tente novamente.'
+          );
+        });
+    } else {
+      Alert.alert(
+        'Falha de validação',
+        'O endereço de e-mail é invalido, verifique e tente novamente.'
+      );
+    }
   }
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.imageContainer}>
-        <Image
-          source={logo}
-          style={styles.logo}
-        />
+        <Image source={logo} style={styles.logo} />
       </View>
 
       {type === 'login' ? (
@@ -103,11 +153,11 @@ const styles = StyleSheet.create({
   input: {
     marginBottom: 10,
     backgroundColor: '#fff',
-    borderRadius: 10,
+    borderRadius: 5,
     height: 45,
     paddingHorizontal: 10,
     borderWidth: 1,
-    borderColor: '#F2EAD3',
+    borderColor: '#f2f2f2',
   },
   loginBtn: {
     alignItems: 'center',
