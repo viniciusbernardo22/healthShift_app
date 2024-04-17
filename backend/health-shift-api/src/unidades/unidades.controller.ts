@@ -3,10 +3,7 @@ import { Controller, Get } from '@nestjs/common';
 
 @Controller('unidades')
 export class UnidadesController {
-
-    constructor(private readonly service: UnidadesService) {
-        
-    }
+    constructor(private readonly service: UnidadesService) { }
 
     @Get()
     GetUnidades(): string {
