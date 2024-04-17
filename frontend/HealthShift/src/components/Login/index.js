@@ -1,17 +1,10 @@
 import { useEffect, useState } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  SafeAreaView,
-  TextInput,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
+import { View, StyleSheet, SafeAreaView, Image } from 'react-native';
 import FormLogin from './components/formLogin';
 import FormRegister from './components/formRegister';
 
 export default function Login() {
+  const logo = require('../../../assets/HealthShift.png')
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -26,7 +19,7 @@ export default function Login() {
       ResetRegisterForm();
     } else {
       ResetLoginForm();
-      setRegisterEmail(email)
+      setRegisterEmail(email);
     }
   }, [type]);
 
@@ -40,20 +33,18 @@ export default function Login() {
   }
 
   function handleLogin() {
-    console.log({email, password})
+    console.log({ email, password });
   }
 
   function handleRegister() {
-    
-    console.log({registerEmail, registerPassword, registerConfirmPassword})
-
+    console.log({ registerEmail, registerPassword, registerConfirmPassword });
   }
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.imageContainer}>
         <Image
-          source={require('../../assets/HealthShift.png')}
+          source={logo}
           style={styles.logo}
         />
       </View>
@@ -80,7 +71,7 @@ export default function Login() {
             registerConfirmPassword={registerConfirmPassword}
             setRegisterEmail={setRegisterEmail}
             setRegisterPassword={setRegisterPassword}
-            setRegisterConfirmPassword={ setRegisterConfirmPassword}
+            setRegisterConfirmPassword={setRegisterConfirmPassword}
             handleRegister={handleRegister}
           />
         </>
