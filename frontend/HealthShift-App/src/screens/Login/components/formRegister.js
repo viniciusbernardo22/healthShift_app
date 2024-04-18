@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-import {
-  Text,
-  TextInput,
-  TouchableOpacity,
-} from 'react-native';
-
+import { Text, TextInput, TouchableOpacity } from 'react-native';
+import { themes } from '../../../themes/basedThemes';
 class FormRegister extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +15,7 @@ class FormRegister extends Component {
       setRegisterEmail,
       setRegisterPassword,
       setRegisterConfirmPassword,
-      handleRegister
+      handleRegister,
     } = this.props;
 
     return (
@@ -29,6 +25,7 @@ class FormRegister extends Component {
           style={styles.input}
           value={registerEmail}
           onChangeText={(e) => setRegisterEmail(e)}
+          placeholderTextColor={themes.mainColor}
         />
         <TextInput
           placeholder='Digite uma senha'
@@ -36,6 +33,7 @@ class FormRegister extends Component {
           value={registerPassword}
           onChangeText={(e) => setRegisterPassword(e)}
           secureTextEntry={true}
+          placeholderTextColor={themes.mainColor}
         />
         <TextInput
           placeholder='Confirme sua senha'
@@ -43,6 +41,7 @@ class FormRegister extends Component {
           value={registerConfirmPassword}
           onChangeText={(e) => setRegisterConfirmPassword(e)}
           secureTextEntry={true}
+          placeholderTextColor={themes.mainColor}
         />
         <TouchableOpacity style={styles.loginBtn} onPress={handleRegister}>
           <Text style={styles.btnText}>Criar conta</Text>

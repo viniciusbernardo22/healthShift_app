@@ -5,6 +5,7 @@ import FormRegister from './components/formRegister';
 import firebase from '../../services/firebase';
 import { EmailValidator } from '../../validators/LoginValidator';
 import { SaveUser } from '../../services/globalstorage'
+import { themes } from '../../themes/basedThemes';
 
 export default function Login({changeStatus}) {
 
@@ -74,7 +75,7 @@ export default function Login({changeStatus}) {
       );
     }
     if (EmailValidator(registerEmail)) {
-      await firebase
+       firebase
         .auth()
         .createUserWithEmailAndPassword(registerEmail, registerPassword)
         .then((response) => {
@@ -138,7 +139,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 50,
-    backgroundColor: '#6681F6',
+    backgroundColor: themes.mainColor,
     justifyContent: 'center',
     paddingHorizontal: 15,
   },
@@ -162,6 +163,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     borderWidth: 1,
     borderColor: '#f2f2f2',
+    fontWeight: 'bold'
   },
   loginBtn: {
     alignItems: 'center',
@@ -176,7 +178,7 @@ const styles = StyleSheet.create({
   btnText: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#6681F6',
+    color: themes.mainColor,
   },
   createAccountTxt: {
     textAlign: 'center',
