@@ -68,7 +68,6 @@ const styles = StyleSheet.create({
   cardImage: {
     height: 180,
     marginBottom: 8,
-   
   },
   cardBody: {
     flex: 1,

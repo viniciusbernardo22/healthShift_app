@@ -10,6 +10,11 @@ export default [
     description:
       'Hospital Santa Teresinha busca enfermeiros para turno noturno. Desejável disponibilidade das 8h às 16h.',
     createdAt: '2024-04-18T08:00:00',
+    turnos: [
+      { title: "Matutino", icon: "emoticon-happy-outline" },
+      { title: "Noturno", icon: "emoticon-lol-outline" }
+    
+    ]
   },
   {
     id: 2,
@@ -22,6 +27,11 @@ export default [
     description:
       'Casa de Repouso Sol Nascente está contratando enfermeiros para cuidados em período integral. Venha fazer parte de nossa equipe dedicada!',
     createdAt: '2024-04-18T09:30:00',
+    turnos: [
+      { title: "Matutino", icon: "emoticon-happy-outline" },
+      { title: "Vespertino", icon: "emoticon-cool-outline" },
+      { title: "Noturno", icon: "emoticon-lol-outline" }
+    ]
   },
   {
     id: 3,
@@ -34,6 +44,11 @@ export default [
     description:
       'Enfermaria Vida Nova precisa de enfermeiros para turno diurno. Preferência para disponibilidade das 8h às 17h.',
     createdAt: '2024-04-18T10:15:00',
+    turnos: [
+      { title: "Matutino", icon: "emoticon-happy-outline" },
+      { title: "Vespertino", icon: "emoticon-cool-outline" },
+      { title: "Noturno", icon: "emoticon-lol-outline" }
+    ]
   },
   {
     id: 4,
@@ -46,6 +61,11 @@ export default [
     description:
       'Hospital São Lucas está contratando enfermeiros para turno noturno. Desejável experiência em UTI.',
     createdAt: '2024-04-18T11:00:00',
+    turnos: [
+      { title: "Matutino", icon: "emoticon-happy-outline" },
+      { title: "Vespertino", icon: "emoticon-cool-outline" },
+      { title: "Noturno", icon: "emoticon-lol-outline" }
+    ]
   },
   {
     id: 5,
@@ -58,6 +78,11 @@ export default [
     description:
       'Casa de Repouso Florescer busca cuidadores para trabalhar em regime de plantão. Oferecemos ambiente acolhedor e equipe qualificada.',
     createdAt: '2024-04-18T11:45:00',
+    turnos: [
+      { title: "Matutino", icon: "emoticon-happy-outline" },
+      { title: "Vespertino", icon: "emoticon-cool-outline" },
+      { title: "Noturno", icon: "emoticon-lol-outline" }
+    ]
   },
   {
     id: 6,
@@ -70,6 +95,11 @@ export default [
     description:
       'Enfermaria Esperança precisa de enfermeiros para turno diurno. Preferência para disponibilidade das 7h às 15h.',
     createdAt: '2024-04-18T12:30:00',
+    turnos: [
+      { title: "Matutino", icon: "emoticon-happy-outline" },
+      { title: "Vespertino", icon: "emoticon-cool-outline" },
+      { title: "Noturno", icon: "emoticon-lol-outline" }
+    ]
   },
   {
     id: 7,
@@ -82,6 +112,11 @@ export default [
     description:
       'Hospital das Acácias está contratando enfermeiros para turno da tarde. Necessário registro no COREN ativo.',
     createdAt: '2024-04-18T13:15:00',
+    turnos: [
+      { title: "Matutino", icon: "emoticon-happy-outline" },
+      { title: "Vespertino", icon: "emoticon-cool-outline" },
+      { title: "Noturno", icon: "emoticon-lol-outline" }
+    ]
   },
   {
     id: 8,
@@ -94,6 +129,11 @@ export default [
     description:
       'Casa de Repouso Aconchego busca auxiliares de enfermagem para cuidados noturnos. Oferecemos treinamento e suporte.',
     createdAt: '2024-04-18T14:00:00',
+    turnos: [
+      { title: "Matutino", icon: "emoticon-happy-outline" },
+      { title: "Vespertino", icon: "emoticon-cool-outline" },
+      { title: "Noturno", icon: "emoticon-lol-outline" }
+    ]
   },
   {
     id: 9,
@@ -106,6 +146,11 @@ export default [
     description:
       'Enfermaria Serenidade está contratando enfermeiros para turno diurno. Venha fazer parte de uma equipe comprometida com o bem-estar dos pacientes.',
     createdAt: '2024-04-18T15:30:00',
+    turnos: [
+      { title: "Matutino", icon: "emoticon-happy-outline" },
+      { title: "Vespertino", icon: "emoticon-cool-outline" },
+      { title: "Noturno", icon: "emoticon-lol-outline" }
+    ]
   },
   {
     id: 10,
@@ -118,6 +163,11 @@ export default [
     description:
       'Hospital São José precisa de enfermeiros para turno noturno. Necessária disponibilidade aos finais de semana.',
     createdAt: '2024-04-18T16:15:00',
+    turnos: [
+      { title: "Matutino", icon: "emoticon-happy-outline" },
+      { title: "Vespertino", icon: "emoticon-cool-outline" },
+      { title: "Noturno", icon: "emoticon-lol-outline" }
+    ]
   },
   {
     id: 11,
@@ -129,6 +179,11 @@ export default [
     description:
       'Casa de Repouso Primavera busca cuidadores para turno da noite. Oferecemos salário competitivo e ambiente de trabalho agradável.',
     createdAt: '2024-04-18T17:00:00',
+    turnos: [
+      { title: "Matutino", icon: "emoticon-happy-outline" },
+      { title: "Vespertino", icon: "emoticon-cool-outline" },
+      { title: "Noturno", icon: "emoticon-lol-outline" }
+    ]
   },
   {
     id: 12,
@@ -141,6 +196,11 @@ export default [
     description:
       'Enfermaria Luz do Dia precisa de enfermeiros para turno diurno. Excelente oportunidade de crescimento profissional.',
     createdAt: '2024-04-18T17:45:00',
+    turnos: [
+      { title: "Matutino", icon: "emoticon-happy-outline" },
+      { title: "Vespertino", icon: "emoticon-cool-outline" },
+      { title: "Noturno", icon: "emoticon-lol-outline" }
+    ]
   },
   {
     id: 13,
@@ -153,6 +213,11 @@ export default [
     description:
       'Hospital Santo Antônio está contratando enfermeiros para turno noturno. Experiência em emergência é um diferencial.',
     createdAt: '2024-04-18T18:30:00',
+    turnos: [
+      { title: "Matutino", icon: "emoticon-happy-outline" },
+      { title: "Vespertino", icon: "emoticon-cool-outline" },
+      { title: "Noturno", icon: "emoticon-lol-outline" }
+    ]
   },
   {
     id: 14,
@@ -165,6 +230,11 @@ export default [
     description:
       'Casa de Repouso Harmonia busca cuidadores para plantões aos finais de semana. Venha fazer parte de nossa equipe dedicada e solidária.',
     createdAt: '2024-04-18T19:15:00',
+    turnos: [
+      { title: "Matutino", icon: "emoticon-happy-outline" },
+      { title: "Vespertino", icon: "emoticon-cool-outline" },
+      { title: "Noturno", icon: "emoticon-lol-outline" }
+    ]
   },
   {
     id: 15,
@@ -177,6 +247,11 @@ export default [
     description:
       'Enfermaria Florescer precisa de enfermeiros para turno diurno. Junte-se a nós e faça a diferença na vida dos pacientes.',
     createdAt: '2024-04-18T20:00:00',
+    turnos: [
+      { title: "Matutino", icon: "emoticon-happy-outline" },
+      { title: "Vespertino", icon: "emoticon-cool-outline" },
+      { title: "Noturno", icon: "emoticon-lol-outline" }
+    ]
   },
   {
     id: 16,
@@ -189,6 +264,11 @@ export default [
     description:
       'Hospital Nossa Senhora de Fátima está contratando enfermeiros para turno noturno. Venha fazer parte de nossa equipe multidisciplinar.',
     createdAt: '2024-04-18T20:45:00',
+    turnos: [
+      { title: "Matutino", icon: "emoticon-happy-outline" },
+      { title: "Vespertino", icon: "emoticon-cool-outline" },
+      { title: "Noturno", icon: "emoticon-lol-outline" }
+    ]
   },
   {
     id: 17,
@@ -201,6 +281,10 @@ export default [
     description:
       'Casa de Repouso Bem Estar busca cuidadores para plantões noturnos. Oferecemos treinamento e oportunidades de crescimento.',
     createdAt: '2024-04-18T21:30:00',
+    turnos: [
+      { title: "Matutino", icon: "emoticon-happy-outline" },
+      { title: "Noturno", icon: "emoticon-lol-outline" }
+    ]
   },
   {
     id: 18,
@@ -213,6 +297,9 @@ export default [
     description:
       'Enfermaria Esperança precisa de enfermeiros para turno diurno. Valorizamos o comprometimento e a empatia.',
     createdAt: '2024-04-18T22:15:00',
+    turnos: [
+      { title: "Noturno", icon: "emoticon-lol-outline" }
+    ]
   },
   {
     id: 19,
@@ -225,5 +312,9 @@ export default [
     description:
       'Hospital São Rafael está contratando enfermeiros para turno noturno. Experiência em UTI é desejável.',
     createdAt: '2024-04-18T23:00:00',
+    turnos: [
+      { title: "Vespertino", icon: "emoticon-cool-outline" },
+      { title: "Noturno", icon: "emoticon-lol-outline" }
+    ]
   },
 ];

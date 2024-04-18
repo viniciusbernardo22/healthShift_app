@@ -12,7 +12,7 @@ function AuthRoutes(){
         name="Login"
         component={Login}
         options={{
-          headerShown: false,
+          headerShown: false
         }}
       />
     </AuthStack.Navigator>

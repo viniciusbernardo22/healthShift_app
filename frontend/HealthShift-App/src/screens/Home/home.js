@@ -13,7 +13,7 @@ export default function Home() {
   const [unidadesList, setUnidadesList] = useState(Unidades);
 
   function handlePress(item) {
-    navigation.navigate('Detalhes', item);
+    navigation.navigate('Detalhes', item)
   }
   useEffect(() => {
     if (search === '') {
