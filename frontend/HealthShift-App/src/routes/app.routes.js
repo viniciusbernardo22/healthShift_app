@@ -1,8 +1,7 @@
 import React from 'react';
-import { Text } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import Home from '../components/Home/home';
+import Home from '../screens/Home/home';
 
 const AppDrawer = createDrawerNavigator();
 

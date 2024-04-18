@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { View, StyleSheet, SafeAreaView, Image, Alert } from 'react-native';
 import FormLogin from './components/formLogin';
 import FormRegister from './components/formRegister';
-import firebase from './services/firebase';
+import firebase from '../../services/firebase';
 import { EmailValidator } from '../../validators/LoginValidator';
-import { SaveUser } from '../Login/services/globalstorage'
+import { SaveUser } from '../../services/globalstorage'
 
 export default function Login({changeStatus}) {
 
@@ -66,7 +66,7 @@ export default function Login({changeStatus}) {
     }
   }
 
-  function handleRegister() {
+  async function handleRegister() {
     if (registerPassword !== registerConfirmPassword) {
       Alert.alert(
         'Falha de validação',
@@ -74,14 +74,14 @@ export default function Login({changeStatus}) {
       );
     }
     if (EmailValidator(registerEmail)) {
-      firebase
+      await firebase
         .auth()
         .createUserWithEmailAndPassword(registerEmail, registerPassword)
         .then((response) => {
-          setType('login');
+          Alert.alert(`Sucesso`, `Conta para ${registerEmail} foi criada.`);
           setEmail(registerEmail);
           setPassword(registerPassword);
-          handleLogin();
+          setType('login');
         })
         .catch((err) => {
           Alert.alert(
