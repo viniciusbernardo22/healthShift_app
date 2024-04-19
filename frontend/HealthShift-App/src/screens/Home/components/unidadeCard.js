@@ -1,9 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, Button, Pressable, TouchableOpacity } from 'react-native';
 import { themes } from '../../../themes/basedThemes';
+import Shifts from '../../../custom/shifts/shifts';
 
 export default function UnidadeCard({ props, handlePress }) {
-  const { id, title, image, city, uf, type, description } = props;
+  const { id, title, image, city, uf, type, description, turnos } = props;
 
   return (
     <View style={styles.container} key={id}>
@@ -22,6 +23,7 @@ export default function UnidadeCard({ props, handlePress }) {
           <Text style={styles.cardLabel}>
             {city}/{uf}
           </Text>
+          <Shifts turnos={turnos} />
           <Text style={styles.cardDescription}>{description}</Text>
           <Text style={styles.cardFooter}>Anunciado à 12 min</Text>
          
@@ -81,10 +83,9 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   cardLabel: {
-    color: '#000000',
+    color: '#7D7C7C',
     fontSize: 14,
     marginBottom: 6,
-    fontWeight: 'bold',
     fontStyle: 'italic',
   },
   cardDescription: {
