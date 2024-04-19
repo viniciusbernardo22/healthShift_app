@@ -13,7 +13,7 @@ export default function Home() {
   const [unidadesList, setUnidadesList] = useState(Unidades);
 
   function handlePress(item) {
-    navigation.navigate('Detalhes', item)
+    navigation.navigate('Detalhes', item);
   }
   useEffect(() => {
     if (search === '') {
@@ -42,15 +42,16 @@ export default function Home() {
           placeholderTextColor={themes.mainColor}
         />
       </View>
-
-      <FlatList
-        data={unidadesList}
-        initialNumToRender={2}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <UnidadeCard props={item} handlePress={(e) => handlePress(e)} />
-        )}
-      />
+      <View style={{marginBottom: 140}}>
+        <FlatList
+          data={unidadesList}
+          initialNumToRender={2}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
+            <UnidadeCard props={item} handlePress={(e) => handlePress(e)} />
+          )}
+        />
+      </View>
     </View>
   );
 }

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { ScrollView, View, Text, StyleSheet, Alert } from 'react-native';
 import React, { useContext } from 'react';
 import { ShiftContext } from '../../contexts/shiftContext';
 import Card from '../../custom/cards/card';
@@ -14,13 +14,14 @@ export default function Turnos() {
   }
 
   return (
-    <View style={styles.head}>
+    <ScrollView nestedScrollEnabled={true} style={styles.head}>
       {userShifts.length > 0 &&
         userShifts.map((shift, index) => (
           <View style={styles.separation} key={index}>
             <React.Fragment>
               <Text style={styles.title}>{shift.company.title}</Text>
               <FlatList
+                scrollEnabled={false}
                 data={shift.shifts}
                 renderItem={(item) => (
                   <Card
@@ -34,7 +35,7 @@ export default function Turnos() {
             </React.Fragment>
           </View>
         ))}
-    </View>
+    </ScrollView>
   );
 }
 

@@ -16,7 +16,7 @@ export default [
         icon: 'weather-sunset',
         shifts: [
           {
-            id: 9753,
+            id: 9754,
             starting: '2024-04-25T06:00:00',
             finishing: '2024-04-25T14:00:00',
           },
@@ -135,7 +135,7 @@ export default [
             finishing: '2024-04-25T14:00:00',
           },
           {
-            id: 7421,
+            id: 7425,
             starting: '2024-04-26T06:00:00',
             finishing: '2024-04-26T14:00:00',
           },
