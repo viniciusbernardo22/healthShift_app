@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import firebase from '../services/firebase';
 import { Alert } from 'react-native';
-import { SaveUser, USER_KEY } from '../services/globalstorage';
+import { RemoveUser, SaveUser, USER_KEY } from '../services/globalstorage';
 
 export const AuthContext = createContext({});
 
@@ -11,20 +11,26 @@ export default function AuthProvider({ children }) {
   const [isAuthLoading, setIsAuthLoading] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  
   useEffect(() => {
     async function loadStorage() {
+      
       const storage = await AsyncStorage.getItem(USER_KEY);
       console.log('storage: ', storage);
       if (storage) {
         setUser(JSON.parse(storage));
+        setIsLoading(false)
       }
+      setIsLoading(false)
+
     }
     loadStorage();
   }, []);
 
   useEffect(() => {
     console.log('root: ', user);
-  }, [user]);
+    console.log('isLoading: ', isLoading)
+  }, [user, isLoading]);
 
   async function signUp(email, senha) {
     setIsAuthLoading(true);
@@ -32,7 +38,7 @@ export default function AuthProvider({ children }) {
       .auth()
       .createUserWithEmailAndPassword(email, senha)
       .then(() => {
-        const user = { user: { email } };
+        const user = { email };
         setUser(user);
         SaveUser(user);
 
@@ -54,7 +60,8 @@ export default function AuthProvider({ children }) {
       .signInWithEmailAndPassword(email, senha)
       .then(() => {
         setIsAuthLoading(false);
-        const user = { user: { email } };
+        const user = { email };
+
         setUser(user);
         SaveUser(user);
       })
@@ -68,9 +75,13 @@ export default function AuthProvider({ children }) {
       });
   }
 
+  function signOut(){
+    setUser(null);
+    RemoveUser();
+  }
   return (
     <AuthContext.Provider
-      value={{ signed: !!user, user, signUp, signIn, isAuthLoading, isLoading }}
+      value={{ signed: !!user, user, signUp, signIn, signOut, isAuthLoading, isLoading }}
     >
       {children}
     </AuthContext.Provider>

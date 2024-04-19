@@ -1,12 +1,21 @@
-import React from 'react';
-import { View, Text, Image } from 'react-native';
+import React, { useContext } from 'react';
+import { View, Text, Image, Button, StyleSheet } from 'react-native';
 
 import {
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
+import { AuthContext } from '../../contexts/authContext';
+import { themes } from '../../themes/basedThemes';
+export default function CustomDrawer(props) {
+  const { signOut, user } = useContext(AuthContext);
 
-export default function CustomDrawer(props){
+  const getUsername = (email) => {
+    const indexOfAt = email.indexOf('@');
+    const username = email.substring(0, indexOfAt);
+    return indexOfAt !== -1 ? username : '';
+  };
+
   return (
     <DrawerContentScrollView {...props}>
       <View
@@ -31,11 +40,31 @@ export default function CustomDrawer(props){
             marginBottom: 35,
           }}
         >
-          Bem-vindo!
+          {' '}
+          Bem vindo
+          {user && (
+            <Text style={styles.userTxt}> {getUsername(user.email)}</Text>
+          )}
+         {' '}!!
         </Text>
       </View>
 
       <DrawerItemList {...props} />
+
+      <Button onPress={signOut} style={{ padding: 10 }} title='Sair' />
     </DrawerContentScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingTop: 10,
+  },
+  userTxt: {
+    color: themes.mainColor,
+    fontWeight: 'bold',
+  },
+});
