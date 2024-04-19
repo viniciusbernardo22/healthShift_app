@@ -1,14 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { View, StyleSheet, SafeAreaView, Image, Alert } from 'react-native';
 import FormLogin from './components/formLogin';
 import FormRegister from './components/formRegister';
-import firebase from '../../services/firebase';
-import { EmailValidator } from '../../validators/LoginValidator';
-import { SaveUser } from '../../services/globalstorage'
 import { themes } from '../../themes/basedThemes';
+import { AuthContext } from '../../contexts/authContext';
+import {
+  canAuthenticate,
+  CanCreateAccount,
+} from '../../validators/authValidators';
+import { VALIDATOR_FAIL } from '../../validators/errors/errors';
 
-export default function Login({changeStatus}) {
-
+export default function Login() {
+  const { signUp, signIn } = useContext(AuthContext);
   const logo = require('../../assets/HealthShift.png');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -18,83 +21,27 @@ export default function Login({changeStatus}) {
   const [registerConfirmPassword, setRegisterConfirmPassword] = useState('');
   const [type, setType] = useState('login');
 
-  useEffect(() => {
-    if (type == 'login') {
-      ResetRegisterForm();
+  async function handleLogin() {
+    const { isValid } = canAuthenticate(email, password);
+
+    if (isValid) {
+      signIn(email, password);
     } else {
-      ResetLoginForm();
-      setRegisterEmail(email);
-    }
-  }, [type]);
-
-  function ResetRegisterForm() {
-    setRegisterPassword('');
-    setRegisterConfirmPassword('');
-  }
-
-  function ResetLoginForm() {
-    setPassword('');
-  }
-
-  async function  handleLogin() {
-    if (EmailValidator(email) && password !== '') {
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(email, password)
-        .then((response) => {
-          Alert.alert(
-            '',
-            'Login bem sucedido'
-          );
-          setEmail('');
-          ResetLoginForm();
-          const { uid, email } = response.user;
-          SaveUser({uid, email});
-          changeStatus(response.user.uid);
-        })
-        .catch((e) => {
-          console.log(e)
-          Alert.alert(
-            'Falha de autenticação',
-            'Ocorreu algum erro durante sua tentativa de autenticação, tente novamente.'
-          );
-        });
-    } else {
-      Alert.alert(
-        'Falha de validação',
-        'Há algo errado com seu e-mail ou senha, por favor tente novamente.'
-      );
+      Alert.alert('Alerta', VALIDATOR_FAIL);
     }
   }
 
   async function handleRegister() {
-    if (registerPassword !== registerConfirmPassword) {
-      Alert.alert(
-        'Falha de validação',
-        'As duas senhas não coencidem, por favor tente novamente'
-      );
-    }
-    if (EmailValidator(registerEmail)) {
-       firebase
-        .auth()
-        .createUserWithEmailAndPassword(registerEmail, registerPassword)
-        .then((response) => {
-          Alert.alert(`Sucesso`, `Conta para ${registerEmail} foi criada.`);
-          setEmail(registerEmail);
-          setPassword(registerPassword);
-          setType('login');
-        })
-        .catch((err) => {
-          Alert.alert(
-            'Falha de criação de usuário',
-            'Ocorreu algum erro durante sua tentativa de criação de usuario, tente novamente.'
-          );
-        });
+    const { isValid } = CanCreateAccount(
+      registerEmail,
+      registerPassword,
+      registerConfirmPassword
+    );
+
+    if (isValid) {
+      signUp(registerEmail, registerPassword);
     } else {
-      Alert.alert(
-        'Falha de validação',
-        'O endereço de e-mail é invalido, verifique e tente novamente.'
-      );
+      Alert.alert('Alerta', VALIDATOR_FAIL);
     }
   }
 
@@ -163,7 +110,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     borderWidth: 1,
     borderColor: '#f2f2f2',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   loginBtn: {
     alignItems: 'center',

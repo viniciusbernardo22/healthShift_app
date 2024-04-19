@@ -1,24 +1,20 @@
-import { useState} from 'react';
-import Login from './src/screens/Login/login';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
+import AuthProvider from './src/contexts/authContext';
 import Routes from './src/routes';
 
-const Stack = createNativeStackNavigator();
-
 function App() {
-  const [user, setUser] = useState('');
-  //const { signed , user} = useContext(AuthContext);
+  // const [user, setUser] = useState('');
+  // //const { signed , user} = useContext(AuthContext);
 
-
-  if (!user) {
-    return <Login changeStatus={setUser}/>;
-  } 
+  // // if (!user) {
+  // //   return <Login changeStatus={setUser}/>;
+  // // }
 
   return (
     <NavigationContainer>
-      <Routes/>
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
     </NavigationContainer>
   );
 }
