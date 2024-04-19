@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { formatDateTimeRange } from '../../utils/formatDate';
 import { themes } from '../../themes/basedThemes';
-export default function Card({ shifts }) {
+export default function Card({ shifts, btnAction, btnColor, btnTxt }) {
   const { id, starting, finishing } = shifts.item;
 
   return (
@@ -12,8 +12,16 @@ export default function Card({ shifts }) {
         </Text>
       </View>
 
-      <TouchableOpacity style={styles.Button}>
-        <Text style={styles.ButtonTxt}>Candidatar-se</Text>
+      <TouchableOpacity
+        style={[
+          styles.Button,
+          { backgroundColor: btnColor ? btnColor : themes.mainColor },
+        ]}
+        onPress={() => btnAction(shifts.item)}
+      >
+        <Text style={styles.ButtonTxt}>
+          {btnTxt ? btnTxt : 'Candidatar-se'}
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -33,18 +41,17 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: 'bold',
     color: themes.mainColor,
-    fontSize: 16
+    fontSize: 16,
   },
   Button: {
     paddingStart: 12,
     paddingEnd: 12,
     paddingTop: 6,
     paddingBottom: 6,
-    backgroundColor: themes.mainColor,
-    borderRadius: 12
+    borderRadius: 12,
   },
   ButtonTxt: {
     color: '#fff',
-    fontSize: 14
-  }
+    fontSize: 14,
+  },
 });
