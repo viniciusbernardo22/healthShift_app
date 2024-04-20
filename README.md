@@ -4,7 +4,7 @@
  <h3 align="center">Projeto HealthShift</h3>
  <br>
   <a >
-    <img src="./src/assets/HealthShift.png" height='400' width='100%' alt="Logo">
+    <img src="./src/assets/HealthShift.png"  alt="Logo">
   </a>
 
 </p>
