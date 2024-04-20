@@ -154,7 +154,8 @@ Vinícius - **vini383@gmail.com**
 
 ## ScreenShots
 
-![Descrição da imagem](./src/assets/readme/login.jpeg)
+<img src="./src/assets/readme/login.jpeg" alt="Descrição da imagem" width="300">
+
 
 
 
