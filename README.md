@@ -103,15 +103,9 @@ Nesta seção haverão instruções estruturais, explicando para que os diretór
 
 - **src** - Diretório contendo todos os arquivos da aplicação, é criado um diretório `src` para que o código da aplicação possa ser isolado em um diretório e facilmente portado para outros projetos, se necessário;
 
-  - **config** - Diretório para guardar os arquivos de configuração da aplicação, por exemplo, a configuração de uso do Reactotron e configuração de inicialização do Firebase;
-
-    - **ReactotronConfig.js** - Arquivo contendo a configuração do Reactotron para ser usado na aplicação;
-
   - **assets** - Diretório para armazenar imagens em geral que possam ser utilizadas na aplicação.
 
   - **contexts** - Diretório para armazenamento de contextos da aplicação.
-  -      - **authContext.js** - Arquivo com toda a lógica de contexto de autenticação.
-  -     - **shiftContext.js** - Arquivo com toda a lógica de contexto relacionado ao gerenciamento de turnos na aplicação.
 
   - **custom** - Diretório para armazenamento dos componentes customizados de bibliotecas externas, que serão utilizados na aplicação.
 
