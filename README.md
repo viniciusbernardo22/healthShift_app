@@ -154,6 +154,8 @@ Vinícius - **vini383@gmail.com**
 
 ## ScreenShots
 
+<div style="text-align:center;">
+
 <img src="./src/assets/readme/login.jpeg" alt="Descrição da imagem" width="300">
 
 <img src="./src/assets/readme/createAccount.jpeg" alt="Descrição da imagem" width="300">
@@ -169,5 +171,7 @@ Vinícius - **vini383@gmail.com**
 <img src="./src/assets/readme/detailsShifts.jpeg" alt="Descrição da imagem" width="300">
 
 <img src="./src/assets/readme/shifts.jpeg" alt="Descrição da imagem" width="300">
+
+</div>
 
 
