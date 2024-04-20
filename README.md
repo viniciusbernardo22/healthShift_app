@@ -1,14 +1,13 @@
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
+ <h3 align="center">Projeto HealthShift</h3>
+ <br>
   <a >
-    <img src="./src/assets/HealthShift.png" alt="Logo">
+    <img src="./src/assets/HealthShift.png" height='40' width='100' alt="Logo">
   </a>
 
-  <h3 align="center">Projeto HealthShift</h3>
 </p>
-
 
 ## Sobre o Projeto
 
@@ -130,42 +129,37 @@ Nesta seção haverão instruções estruturais, explicando para que os diretór
 
   - **config** - Diretório para guardar os arquivos de configuração da aplicação, por exemplo, a configuração de uso do Reactotron e configuração de inicialização do Firebase;
 
-      - **ReactotronConfig.js** - Arquivo contendo a configuração do Reactotron para ser usado na aplicação;
+    - **ReactotronConfig.js** - Arquivo contendo a configuração do Reactotron para ser usado na aplicação;
 
   - **assets** - Diretório para armazenar imagens em geral que possam ser utilizadas na aplicação.
 
   - **contexts** - Diretório para armazenamento de contextos da aplicação.
-  - 
-         - **authContext.js** - Arquivo com toda a lógica de contexto de autenticação.
-  -  
-         - **shiftContext.js** - Arquivo com toda a lógica de contexto relacionado ao gerenciamento de turnos na aplicação.
-    
-  - **custom** - Diretório para armazenamento dos componentes customizados de bibliotecas externas,  que serão utilizados na aplicação.
+  -      - **authContext.js** - Arquivo com toda a lógica de contexto de autenticação.
+  -     - **shiftContext.js** - Arquivo com toda a lógica de contexto relacionado ao gerenciamento de turnos na aplicação.
+
+  - **custom** - Diretório para armazenamento dos componentes customizados de bibliotecas externas, que serão utilizados na aplicação.
 
   - **mock** - Diretório para armazenamento dos dados exemplo que serão utilizados na aplicação, simulando requisições HTTP e banco de dados.
- 
+
   - **routes** - Diretório para armazenamento das configurações rotas da aplicação.
 
   - **screens** - Diretório para armazenamento dos componentes principais da aplicação.
- 
-  - **services** - Diretório para armazenamento dos serviços da aplicação, separando responsabilidades de outros componentes.
-    
-  - **themes** - Diretório para armazenamento das configurações de tema da aplicação, como cores padrão.
- 
-   - **utils** - Diretório para armazenamento de funções auxiliares que serão utilizadas em toda a aplicação.
 
-    - **validators** - Diretório para armazenamento de validações com lógica de negócio e erros comuns da aplicação.
-        
- - **.gitignore** - Arquivo para evitar versionamento de arquivos não necessários para a cada ambiente de desenvolvimento, como ambientes de IDE e módulos do npm
-   
- - **App.js** - Arquivo raiz da aplicação, também chamado de _Entry Point_, é o primeiro arquivo chamado no momento do build e execução da aplicação.
+  - **services** - Diretório para armazenamento dos serviços da aplicação, separando responsabilidades de outros componentes.
+  - **themes** - Diretório para armazenamento das configurações de tema da aplicação, como cores padrão.
+
+  - **utils** - Diretório para armazenamento de funções auxiliares que serão utilizadas em toda a aplicação.
+
+  - **validators** - Diretório para armazenamento de validações com lógica de negócio e erros comuns da aplicação.
+
+- **.gitignore** - Arquivo para evitar versionamento de arquivos não necessários para a cada ambiente de desenvolvimento, como ambientes de IDE e módulos do npm
+- **App.js** - Arquivo raiz da aplicação, também chamado de _Entry Point_, é o primeiro arquivo chamado no momento do build e execução da aplicação.
 
 - **app.json** - Arquivo de configuração da aplicação.
 
 - **babel.config.js** - Arquivo de configuração do Babel, é nele que é configurado o Babel Plugin Root Import para aceitar imports absolutos na aplicação usando o diretório `src` como raiz;
 
 - **package.json** - Diferente dos projetos comuns, esse arquivo tem as configurações necessárias para a publicação do Template no NPM, para saber mais sobre isso veja a seção abaixo.
- 
 
 <!-- CONTRIBUTING -->
 
