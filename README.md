@@ -77,31 +77,69 @@ Antes de seguirmos para as configurações e uso do template, é ideal que você
 A estrutura de arquivos está da seguinte maneira:
 
 ```bash
-rocketseat-basic
+├── .expo
 ├── src/
-│   ├── config/
-│   │   └── ReactotronConfig.js
-│   ├── images/
-│   │   ├── rocketseat_logo_roxa.png
-│   │   └── rocketseat_logo.png
-│   ├── pages/
-│   │   └── Main/
-│   │       └── index.js
+│   ├── assets/
+│   │   └── adaptive-icon.png
+│   │   └── favicon.png
+│   │   └── HealthShift.png
+│   │   └── icon.png
+│   │   └── perfil.png
+│   │   └── spash.png
+│   ├── contexts/
+│   │   └── authContext.js
+│   │   └── shiftContext.js
+│   ├── custom/
+│   │   ├── cards/
+│   │       └── authContext.js
+│   │   ├── drawer/
+│   │       └── customDrawer.js
+│   │   ├── select/
+│   │        └── select.js
+│   │   ├── shifts/
+│   │        └── shifts.js
+│   ├── mock/
+│   │   └── Unidades.js
+│   ├── routes/
+│   │   └── app.routes.js
+│   │   └── auth.routes.js
+│   │   └── index.js
+│   ├── screens/
+│   │   ├── Detail/
+│   │        └── components/
+│   │            └── unityImage.js
+│   │       └── customDrawer.js
+│   │   ├── Home/
+│   │        └── components/
+│   │            └── unidadeCard.js
+│   │       └── home.js
+│   │   ├── Login/
+│   │        └── components/
+│   │            └── formLogin.js
+│   │            └── formRegister.js
+│   │       └── login.js
+│   │   ├── Turnos/
+│   │       └── turnos.js
 │   ├── services/
-│   │   └── api.js
-│   ├── index.js
-│   └── routes.js
-├── .editorconfig
-├── .eslintrc.json
+│   │   └── firebase.js
+│   │   └── globalstorage.js
+│   ├── themes/
+│   │   └── basedThemes.js
+│   ├── utils/
+│   │   └── checkColor.js
+│   │   └── formatDate.js
+│   ├── validators/
+│   │   ├── errors/
+│   │       └── errors.js
+│   │   └── authValidators.js
+│   │   └── checkColor.js
+│   │   └── formatDate.js
 ├── .gitignore
+├── App.js
+├── app.json
 ├── babel.config.js
-├── dependencies.json
-├── devDependencies.json
-├── index.js
-├── jsconfig.js
-├── LICENSE
+├── package-lock.json
 ├── package.json
-└── README.md
 ```
 
 Serão explicados os arquivos e diretórios na seção de [Edição](#edição).
