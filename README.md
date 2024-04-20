@@ -3,10 +3,6 @@
 <p align="center">
  <h3 align="center">Projeto HealthShift</h3>
  <br>
-  <a align="center">
-    <img  src="./src/assets/HealthShift.png"  alt="Logo">
-  </a>
-
 </p>
 
 ## Sobre o Projeto
