@@ -16,7 +16,6 @@ export default function AuthProvider({ children }) {
     async function loadStorage() {
       
       const storage = await AsyncStorage.getItem(USER_KEY);
-      console.log('storage: ', storage);
       if (storage) {
         setUser(JSON.parse(storage));
         setIsLoading(false)
@@ -26,11 +25,6 @@ export default function AuthProvider({ children }) {
     }
     loadStorage();
   }, []);
-
-  useEffect(() => {
-    console.log('root: ', user);
-    console.log('isLoading: ', isLoading)
-  }, [user, isLoading]);
 
   async function signUp(email, senha) {
     setIsAuthLoading(true);
