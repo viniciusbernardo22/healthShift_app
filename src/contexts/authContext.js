@@ -11,23 +11,25 @@ export default function AuthProvider({ children }) {
   const [isAuthLoading, setIsAuthLoading] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  
+  function setLoaders(state) {
+    setIsLoading(state);
+    setIsAuthLoading(state);
+  }
+
   useEffect(() => {
     async function loadStorage() {
-      
       const storage = await AsyncStorage.getItem(USER_KEY);
       if (storage) {
         setUser(JSON.parse(storage));
-        setIsLoading(false)
+        setIsLoading(false);
       }
-      setIsLoading(false)
-
+      setIsLoading(false);
     }
     loadStorage();
   }, []);
 
   async function signUp(email, senha) {
-    setIsAuthLoading(true);
+    setLoaders(true);
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, senha)
@@ -36,31 +38,33 @@ export default function AuthProvider({ children }) {
         setUser(user);
         SaveUser(user);
 
-        setIsAuthLoading(false);
+        setLoaders(false);
       })
       .catch((e) => {
         Alert.alert(
           'Atenção',
           'Ocorreu algum erro durante o processo de cadastro.'
         );
-        setIsAuthLoading(false);
+        setLoaders(false);
       });
   }
 
   async function signIn(email, senha) {
-    setIsAuthLoading(true);
+    setLoaders(true);
+
     firebase
       .auth()
       .signInWithEmailAndPassword(email, senha)
       .then(() => {
-        setIsAuthLoading(false);
+        setLoaders(false);
+
         const user = { email };
 
         setUser(user);
         SaveUser(user);
       })
       .catch(() => {
-        setIsAuthLoading(false);
+        setLoaders(false);
 
         Alert.alert(
           'Atenção',
@@ -69,13 +73,21 @@ export default function AuthProvider({ children }) {
       });
   }
 
-  function signOut(){
+  function signOut() {
     setUser(null);
     RemoveUser();
   }
   return (
     <AuthContext.Provider
-      value={{ signed: !!user, user, signUp, signIn, signOut, isAuthLoading, isLoading }}
+      value={{
+        signed: !!user,
+        user,
+        signUp,
+        signIn,
+        signOut,
+        isAuthLoading,
+        isLoading,
+      }}
     >
       {children}
     </AuthContext.Provider>

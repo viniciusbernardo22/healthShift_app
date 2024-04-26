@@ -44,14 +44,18 @@ export default function CustomDrawer(props) {
           Bem vindo
           {user && (
             <Text style={styles.userTxt}> {getUsername(user.email)}</Text>
-          )}
-         {' '}!!
+          )}{' '}
+          !!
         </Text>
       </View>
 
       <DrawerItemList {...props} />
 
-      <Button onPress={signOut} style={{ padding: 10 }} title='Sair' />
+      <View style={{ flex: 1, alignItems: 'center', marginTop: 30 }}>
+        <View style={{ width: '50%', borderRadius: 10, overflow: 'hidden' }}>
+          <Button onPress={signOut} title='Sair' color={themes.mainColor} />
+        </View>
+      </View>
     </DrawerContentScrollView>
   );
 }

@@ -21,7 +21,7 @@ export default function Home() {
     } else {
       setUnidadesList(
         Unidades.filter((unidade) => {
-          if (unidade.title.toLowerCase().includes(search)) {
+          if (unidade.title.toLowerCase().includes(search.toLowerCase())) {
             return true;
           } else {
             return false;
